@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Shield, 
   RefreshCw, 
@@ -9,7 +9,8 @@ import {
   Printer, 
   CheckCircle2, 
   AlertTriangle,
-  ChevronDown
+  ChevronDown,
+  Clock
 } from 'lucide-react';
 import { useDashboard, DashboardPage } from '../context/DashboardContext';
 import { exportIncidentsToCSV, exportSummaryReportToCSV } from '../utils/exporter';
@@ -44,7 +45,15 @@ export const Navbar: React.FC<NavbarProps> = () => {
     showToast
   } = useDashboard();
 
+  const [currentTime, setCurrentTime] = useState<Date>(new Date());
   const [exportOpen, setExportOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleExportIncidents = () => {
     try {
@@ -166,17 +175,29 @@ export const Navbar: React.FC<NavbarProps> = () => {
             <CheckCircle2 className="w-3 h-3 text-emerald-400" />
           </div>
 
-          {/* Last Refresh */}
-          <span className="hidden 2xl:inline text-[11px] text-slate-400 font-mono">
-            {lastRefreshed.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
-          </span>
+          {/* Live Real-Time SOC Clock */}
+          <div 
+            className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-[#111C2F] border border-[#1E2D4A] text-[11px] font-mono shadow-sm"
+            title={`Live SOC Clock (Local Real-Time) • Last Data Refresh: ${lastRefreshed.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}`}
+          >
+            <Clock className="w-3.5 h-3.5 text-cyan-400" />
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span className="text-slate-100 font-bold tracking-wider">
+                {currentTime.toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+              </span>
+              <span className="text-[9px] uppercase font-sans font-bold px-1 py-0.2 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                LIVE
+              </span>
+            </div>
+          </div>
 
           {/* Refresh Button */}
           <button
             onClick={refreshData}
             disabled={isLoading}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#111C2F] hover:bg-[#16243C] active:bg-[#1E2D4A] text-slate-300 hover:text-white border border-[#1E2D4A] text-xs font-medium transition-colors disabled:opacity-50"
-            title="Refresh current dataset"
+            title={`Refresh dataset cache (Last sync: ${lastRefreshed.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })})`}
           >
             <RefreshCw className={`w-3.5 h-3.5 text-cyan-400 ${isLoading ? 'animate-spin' : ''}`} />
             <span className="hidden sm:inline">Refresh</span>
