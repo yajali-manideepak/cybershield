@@ -2,7 +2,6 @@ import React, { useMemo, useState } from 'react';
 import { useDashboard } from '../context/DashboardContext';
 import { FilterPanel } from '../components/FilterPanel';
 import { ThreatScenarioBar } from '../components/threat/ThreatScenarioBar';
-import { ThreatRiskScatterChart } from '../components/threat/ThreatRiskScatterChart';
 import { KillChainProgressionChart } from '../components/threat/KillChainProgressionChart';
 import { DiurnalHourlyChart } from '../components/threat/DiurnalHourlyChart';
 import { AttackVectorBarChart } from '../components/threat/AttackVectorBarChart';
@@ -55,7 +54,7 @@ export const ThreatAnalysisPage: React.FC = () => {
       <div className="bg-gradient-to-r from-rose-950/40 via-indigo-950/40 to-cyan-950/40 border border-cyan-500/20 rounded-xl p-3.5 flex items-start gap-3">
         <AlertTriangle className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
         <div className="text-xs text-slate-200 leading-relaxed">
-          <strong className="text-cyan-300">DEMO B: Advanced Threat Analysis & Kill-Chain Dynamics.</strong> Simulated threat landscape telemetry detailing multi-vector ingress, temporal diurnal rhythms, MITRE ATT&CK progression, and blast radius indicators across {filteredIncidents.length} incident records.
+          <strong className="text-cyan-300">Advanced Threat Analysis & Kill-Chain Dynamics.</strong> Simulated threat landscape telemetry detailing multi-vector ingress, temporal diurnal rhythms, MITRE ATT&CK progression, and blast radius indicators across {filteredIncidents.length} incident records.
         </div>
       </div>
 
@@ -120,14 +119,7 @@ export const ThreatAnalysisPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Row 1: Threat Spectrum (2D Scatter / Bubble Chart) */}
-      <ThreatRiskScatterChart
-        data={scatterData}
-        selectedThreat={selectedThreat}
-        onSelectThreat={(t) => setSelectedThreat(t)}
-      />
-
-      {/* Row 2: MITRE Kill-Chain Progression & 24-Hour Diurnal Density */}
+      {/* Row 1: MITRE Kill-Chain Progression & 24-Hour Diurnal Density */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <KillChainProgressionChart data={killChainData} />
         <DiurnalHourlyChart data={hourlyData} />

@@ -27,14 +27,14 @@ export const OverviewPage: React.FC = () => {
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs font-bold text-white uppercase tracking-wider">
-                FEATURED: DEMO B — THREAT ANALYSIS & ATTACK DYNAMICS
+                FEATURED: THREAT ANALYSIS & ATTACK DYNAMICS
               </span>
               <span className="px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-300 text-[10px] font-mono border border-cyan-400/30 font-semibold">
-                NEW CHARTS
+                ANALYTICS
               </span>
             </div>
             <p className="text-[11px] text-slate-400">
-              Explore the 2D Risk vs Impact Matrix, MITRE Kill-Chain Progression, Ingress Pathways, and 24h Diurnal Rhythms.
+              Explore MITRE Kill-Chain Progression, Ingress Pathways, and 24h Diurnal Rhythms.
             </p>
           </div>
         </div>

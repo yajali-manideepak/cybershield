@@ -38,8 +38,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
       id: 'threat-analysis',
       label: 'Threat Analysis',
       icon: Crosshair,
-      badge: 'DEMO B',
-      isDemo: true,
     },
     {
       id: 'threat-intel',

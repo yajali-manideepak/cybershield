@@ -21,7 +21,7 @@ interface NavbarProps {
 
 const PAGE_TITLES: Record<DashboardPage, { title: string; subtitle: string }> = {
   'overview': { title: 'Security Operations Overview', subtitle: 'Real-time telemetry & simulated incident KPIs' },
-  'threat-analysis': { title: 'Threat Analysis & Attack Dynamics (Demo B)', subtitle: 'Multi-vector correlation, kill-chain progression & blast radius' },
+  'threat-analysis': { title: 'Threat Analysis & Attack Dynamics', subtitle: 'Multi-vector correlation, kill-chain progression & blast radius' },
   'threat-intel': { title: 'Threat Intelligence Analysis', subtitle: 'Indicator correlation & intelligence confidence' },
   'explorer': { title: 'Incident Explorer', subtitle: 'Deep-dive incident investigation & tabular querying' },
   'response': { title: 'Incident Response Analytics', subtitle: 'SLA metrics, containment speed & analyst workload' },

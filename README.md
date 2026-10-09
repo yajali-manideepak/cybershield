@@ -10,9 +10,8 @@
 
 ### Key Capabilities
 * **Interactive Overview SOC Dashboard:** 6 dynamic KPI cards and 8 Recharts visualizers (temporal activity, threat types, severity donut, lifecycle status, MITRE tactics, geographic distribution, response times, and threat-vs-severity breakdowns).
-* **Demo B: Threat Analysis & Attack Dynamics:** Dedicated hackathon presentation module featuring:
-  * **1-Click Hackathon Scenarios:** Quick presets for *All Telemetry*, *Ransomware & Malware Outbreak*, *Data Exfiltration & Insider Threat*, *DDoS & Web Assault*, and *Critical Severity Triage*.
-  * **2D Threat Risk Spectrum Scatter Matrix:** 2-dimensional scatter/bubble chart plotting *Mean Risk Score (0-100%)* against *Estimated Impact (1-10)* with quadrant partition zones (*Critical Hazard Zone* vs. *Routine / Contained*).
+* **Threat Analysis & Attack Dynamics:** Dedicated security analysis module featuring:
+  * **1-Click Threat Analysis Scenarios:** Quick investigative presets for *All Telemetry*, *Ransomware & Malware Outbreak*, *Data Exfiltration & Insider Threat*, *DDoS & Web Assault*, and *Critical Severity Triage*.
   * **MITRE ATT&CK Enterprise Kill-Chain Progression:** Visual tactical pipeline mapping incidents across 7 chronological lifecycle phases (*Initial Access* → *Execution* → *Persistence* → *Lateral Movement* → *Collection* → *Exfiltration* → *Impact*).
   * **24-Hour Diurnal Attack Density:** Hourly temporal rhythm chart with automatic off-hours/night shift compromise calculation.
   * **Ingress Attack Vector Rankings:** Pathway volume comparison with primary threat correlations.
