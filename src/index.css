@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  body {
+    background-color: #080D18;
+    color: #F8FAFC;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D1525;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E2D4A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #38BDF8;
+}
+
+/* Recharts styling overrides for dark theme */
+.recharts-cartesian-grid line {
+  stroke: #1E2D4A !important;
+  stroke-opacity: 0.7;
+}
+
+.recharts-text {
+  fill: #94A3B8 !important;
+  font-size: 11px;
+}
+
+.recharts-legend-item-text {
+  color: #94A3B8 !important;
+  font-size: 12px;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  header, nav, aside, .no-print {
+    display: none !important;
+  }
+  
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  
+  .cyber-card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    break-inside: avoid;
+  }
+}
